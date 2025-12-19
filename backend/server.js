@@ -17,22 +17,13 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 // Routes
 app.use('/api/bills', billRoutes);
 
-// MongoDB Connection - Try local first, then Atlas
-const connectDB = async () => {
-  try {
-    await mongoose.connect('mongodb://localhost:27017/warranty-system');
-    console.log('Local MongoDB connected successfully');
-  } catch (err) {
-    try {
-      await mongoose.connect('mongodb+srv://demo:demo123@cluster0.mongodb.net/warranty-system');
-      console.log('MongoDB Atlas connected successfully');
-    } catch (atlasErr) {
-      console.log('MongoDB connection failed, using local JSON storage');
-    }
-  }
-};
-
-connectDB();
+// MongoDB Atlas Connection
+mongoose.connect('mongodb+srv://aishu:aishu2006@cluster0.crmaqm9.mongodb.net/warranty-system?retryWrites=true&w=majority')
+  .then(() => console.log('MongoDB Atlas connected successfully'))
+  .catch(err => {
+    console.log('MongoDB Atlas connection failed:', err.message);
+    console.log('Using local JSON storage as fallback');
+  });
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
