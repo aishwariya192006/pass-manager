@@ -1,0 +1,14 @@
+[
+  {
+    "_id": "1766123439744",
+    "productName": "iphone13",
+    "vendor": "apple store",
+    "price": 100000,
+    "purchaseDate": "2025-09-19T00:00:00.000Z",
+    "warrantyPeriod": 12,
+    "expiryDate": "2026-09-19T00:00:00.000Z",
+    "billImage": "1766123439738",
+    "category": "Electronics",
+    "createdAt": "2025-12-19T05:50:39.744Z"
+  }
+]
